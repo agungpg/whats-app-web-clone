@@ -1,33 +1,43 @@
-"use client"
-import React, { useState } from "react";
-import PinIcon from "./icons/PinIcon";
-import ArrowDownIcon from "./icons/ArrowDownIcon";
+'use client'
+import React, { useState } from 'react'
 
-export default React.memo(function({onClick}: {onClick: (id: string) => void}) {
+import ArrowDownIcon from './icons/ArrowDownIcon'
+import PinIcon from './icons/PinIcon'
+
+export default React.memo(function ({ onClick }: { onClick: (id: string) => void }) {
   const [isFocus, setIsFocus] = useState(false)
-  return <div onClick={() => onClick("chat-id")} onMouseEnter={() => setIsFocus(true)} onMouseLeave={() => setIsFocus(false)} className="flex items-center px-4 space-x-2 bg-[#fff] hover:bg-[#d1d1d1] cursor-pointer">
-    <div className="py-2">
-      <img src="https://pps.whatsapp.net/v/t61.24694-24/399613093_377345948024581_269404153714835111_n.jpg?stp=dst-jpg_s96x96&amp;ccb=11-4&amp;oh=01_AdSVFFnq79IXZClbN7p_8MswSoKYKPmYp03YmHwgIPlqTA&amp;oe=65DCB0F5&amp;_nc_sid=e6ed6c&amp;_nc_cat=108" 
-    className="w-[49px] h-[49px] rounded-full"></img>
-    </div>
-    <div className="border-b-[1px] border-[#d4d4d4] w-[calc(100%-57px)] h-[100%] flex items-start justify-between">
-      <div className="flex flex-col">
-        <span className="text-[17px] color-[#111B21]">+6282212398123</span>
-        <span className="text-[14px] color-[#667781]">Ker naon maneh euy</span>
+  return (
+    <div
+      onClick={() => onClick('chat-id')}
+      onMouseEnter={() => setIsFocus(true)}
+      onMouseLeave={() => setIsFocus(false)}
+      className='flex cursor-pointer items-center space-x-2 bg-[#fff] px-4 hover:bg-[#d1d1d1]'
+    >
+      <div className='py-2'>
+        <img
+          src='https://mdisharedstoragedev.blob.core.windows.net/d-greenbox/order-documents/0803d239-ab93-4d87-8b09-b9f646a36198.png?sv=2023-11-03&se=2024-03-05T07%3A12%3A29Z&sr=b&sp=r&sig=bRhepAW74q2TCPdSLhFoGM7KDPcFMY2lhH8Q08XXYjY%3D'
+          className='size-[49px] rounded-full'
+        />
       </div>
-      <div className="w-full h-[100%] flex flex-col space-y-2">
-        <span className="text-[12px] color-[#667781] self-end">Yesterday</span>
-        <div className="flex self-end space-x-2">
-          <button>
-            <PinIcon />
-          </button>
-          { isFocus
-            ? <button>
+      <div className='flex h-[100%] w-[calc(100%-57px)] items-start justify-between border-b-[1px] border-[#d4d4d4]'>
+        <div className='flex flex-col'>
+          <span className='color-[#111B21] text-[17px]'>+6282212398123</span>
+          <span className='color-[#667781] text-[14px]'>Ker naon maneh euy</span>
+        </div>
+        <div className='flex h-[100%] w-full flex-col space-y-2'>
+          <span className='color-[#667781] self-end text-[12px]'>Yesterday</span>
+          <div className='flex space-x-2 self-end'>
+            <button>
+              <PinIcon />
+            </button>
+            {isFocus ? (
+              <button>
                 <ArrowDownIcon />
-              </button> : null
-          }
+              </button>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  )
 })
